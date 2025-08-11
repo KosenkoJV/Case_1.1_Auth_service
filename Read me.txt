@@ -1,0 +1,32 @@
+Для PostgreSQL
+
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE tokens (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT REFERENCES users(id) ON DELETE CASCADE,
+    token TEXT NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    revoked BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+
+Postman
+
+register
+{
+  "username": "john",
+  "password": "pass123",
+  "role": ADMINE
+}
+
+login
+{
+"username": "john",
+  "password": "pass123",
+}
