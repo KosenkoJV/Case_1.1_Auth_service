@@ -1,4 +1,4 @@
-package org.example.security;
+package org.example.service;
 
 import org.example.entity.User;
 import io.jsonwebtoken.*;
